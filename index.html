@@ -34,12 +34,16 @@
 
       <div class="flex gap-3">
         <a href="https://github.com/Nobisuke19" target="_blank">
-          <i class="fa-brands fa-github text-4xl text-gray-800" ></i>
+          <i class="fa-brands fa-github text-4xl text-gray-800"></i>
         </a>
 
-        <button href="" class="flex gap-2 bg-green-200  justify-center items-center rounded-xl px-2 font-medium shadow-inner">
+        <button
+          id="join-btn"
+          href=""
+          class="flex gap-2 bg-green-200 justify-center items-center rounded-xl px-2 font-medium shadow-inner"
+        >
           <p>Join with us</p>
-          <i class="fa-solid fa-hat-cowboy text-4xl text-gray-800 "></i>
+          <i class="fa-solid fa-hat-cowboy text-4xl text-gray-800"></i>
         </button>
       </div>
     </nav>
@@ -47,18 +51,28 @@
     <main class="container mx-auto border-b border-gray-300">
       <section
         id="search"
-        class="h-screen flex flex-col items-center justify-center "
+        class="h-screen flex flex-col items-center justify-center gap-5"
       >
         <div>
-          <h1>Get all the meaning of the words</h1>
+          <h1 class="text-center font-extrabold text-7xl">
+            Get The Meaning Of All
+            <p class="hidden" id="hidden">verb</p>
+            <p class="hidden" id="hidden">noun</p>
+            <p class="hidden" id="hidden">adjective</p> 
+          </h1>
+        </div>
+        <div>
           <input
             type="text"
             name=""
             id="search-term"
-            placeholder="seacrch any word....."
+            placeholder="search any word....."
             class="outline-none p-3 border rounded-lg w-[500px] shadow-xl leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
           />
-          <button id="btn" class="bg-blue-500 px-4 py-3 rounded-full shadow-xl border ">
+          <button
+            id="btn"
+            class="bg-blue-500 px-4 py-3 rounded-full shadow-xl border"
+          >
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
@@ -70,6 +84,61 @@
         <h1>Made with ❤️ by Subham</h1>
       </div>
     </footer>
+
+    <!-- user register -->
+    <!-- Registration Popup (Initially Hidden) -->
+    <div
+      id="popup"
+      class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden"
+    >
+      <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-bold mb-4">Register</h2>
+        <form id="register-form">
+          <div class="mb-4">
+            <label for="username" class="block text-gray-700">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="w-full p-2 border border-gray-300 rounded mt-1"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="w-full p-2 border border-gray-300 rounded mt-1"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label for="password" class="block text-gray-700">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="w-full p-2 border border-gray-300 rounded mt-1"
+              required
+            />
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="button"
+              id="close-popup"
+              class="mr-2 bg-gray-200 px-4 py-2 rounded"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

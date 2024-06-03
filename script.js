@@ -24,7 +24,7 @@ search.addEventListener('click', () => {
 
             const resultContent = document.createElement('div');
             resultContent.id = 'result-content';
-            resultContent.className = 'gap-4 mt-20 mx-4'
+            resultContent.className = 'mt-20 mx-4'
             resultSection.appendChild(resultContent);
 
             if (Array.isArray(data) && data.length > 0) {
@@ -32,7 +32,7 @@ search.addEventListener('click', () => {
                 const meanings = data[0].meanings;
 
                 const wordElement = document.createElement('span');
-                wordElement.className = 'inline-flex gap-4  p-3 font-extrabold text-4xl shadow-2 rounded bg-gray-400';
+                wordElement.className = 'inline-flex gap-4  p-3 font-extrabold text-4xl shadow-2 rounded bg-gray-400 mb-5';
                 wordElement.innerHTML =
                     `
             <h1 class="text-4xl font-bold mr-2">${v_word}</h1>
@@ -43,7 +43,7 @@ search.addEventListener('click', () => {
 
                 meanings.forEach((meaning) => {
                     const partOfSpeechElement = document.createElement('div');
-                    partOfSpeechElement.className = 'part-of-speech text-xl italic mb-2';
+                    partOfSpeechElement.className = 'part-of-speech text-xl italic mb-3';
                     partOfSpeechElement.textContent = `Part of Speech: ${meaning.partOfSpeech}`;
                     resultContent.appendChild(partOfSpeechElement);
 
@@ -72,3 +72,27 @@ search.addEventListener('click', () => {
             console.error(err);
         });
 });
+
+
+
+//query for popup
+const joinButton = document.getElementById('join-btn');
+const popup = document.getElementById('popup');
+const closeButton = document.getElementById('close-popup')
+
+joinButton.addEventListener('click', () => {
+    popup.classList.remove('hidden')
+})
+
+closeButton.addEventListener('click', () => {
+    popup.classList.add('hidden')
+})
+
+window.addEventListener("click", (e) => {
+    if (e.target === popup) {
+        popup.classList.add("hidden");
+    }
+});
+
+
+//function for display paragraph
