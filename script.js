@@ -19,12 +19,12 @@ search.addEventListener('click', () => {
 
             const resultSection = document.createElement('section');
             resultSection.id = 'result-section';
-            resultSection.className = 'h-screen flex flex-col mt-20 mx-4';
+            resultSection.className = 'h-screen flex flex-col  border-t border-gray-300';
 
 
             const resultContent = document.createElement('div');
             resultContent.id = 'result-content';
-            resultContent.className = '<gap-4></gap-4>'
+            resultContent.className = 'gap-4 mt-20 mx-4'
             resultSection.appendChild(resultContent);
 
             if (Array.isArray(data) && data.length > 0) {
