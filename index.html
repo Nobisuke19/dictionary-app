@@ -16,58 +16,89 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
+    <title>Dictionary</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <header></header>
     <nav
-      class="flex items-center justify-between px-4 py-3 bg-gray-100 border-b border-gray-300 fixed w-full"
+      class="flex items-center justify-between px-4 py-3 bg-gray-100 border-b border-gray-300 fixed w-full z-20"
     >
       <div class="flex items-center">
         <img
           src="./assets/logoo.svg"
-          alt="dictonary logo"
+          alt="dictionary logo"
           class="w-12 h-auto mr-2"
         />
         <h1 class="text-2xl font-bold">Dictionary</h1>
       </div>
 
-      <div class="flex gap-3">
+      <div class="hidden md:flex gap-3">
         <a href="https://github.com/Nobisuke19" target="_blank">
-          <i class="fa-brands fa-github text-4xl text-gray-800"></i>
+          <i
+            class="fa-brands fa-github text-2xl sm:text-3xl md:text-4xl text-gray-800"
+          ></i>
         </a>
-
+        
         <button
           id="join-btn"
           href=""
-          class="flex gap-2 bg-green-200 justify-center items-center rounded-xl px-2 font-medium shadow-inner"
+          class="flex gap-2 bg-green-200 justify-center items-center rounded-xl px-2 py-1 sm:px-3 sm:py-2 font-medium"
         >
           <p>Join with us</p>
-          <i class="fa-solid fa-hat-cowboy text-4xl text-gray-800"></i>
+          <i
+            class="fa-solid fa-hat-cowboy text-2xl sm:text-3xl md:text-4xl text-gray-800"
+          ></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-toggle" class="focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
         </button>
       </div>
     </nav>
 
-    <main class="container mx-auto border-b border-gray-300">
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden flex-col items-center bg-gray-100 border-b border-gray-300 w-full fixed top-20 left-0 z-10"
+    >
+      <a href="https://github.com/Nobisuke19" target="_blank" class="py-2">
+        <i class="fa-brands fa-github text-3xl text-gray-800"></i>
+      </a>
+      <button
+        id="join-btn-mobile"
+        class="flex gap-2 bg-green-200 justify-center items-center rounded-xl px-2 py-2 font-medium shadow-inner"
+      >
+        <p>Join with us</p>
+        <i class="fa-solid fa-hat-cowboy text-3xl text-gray-800"></i>
+      </button>
+    </div>
+
+    <main
+      class="container mx-auto border-b border-gray-300 flex-grow mt-16 pt-16"
+    >
       <section
         id="search"
-        class="h-screen flex flex-col items-center justify-center gap-5"
+        class="h-screen flex flex-col items-center justify-center gap-5 p-4"
       >
         <div>
-          <h1 class="text-center font-extrabold text-7xl text-shadow">
+          <h1
+            class="text-center font-extrabold text-3xl sm:text-5xl md:text-7xl"
+          >
             Get The Meaning Of All Words
             <p class="hidden" id="hidden">verb</p>
             <p class="hidden" id="hidden">noun</p>
-            <p class="hidden" id="hidden">adjective</p> 
+            <p class="hidden" id="hidden">adjective</p>
           </h1>
         </div>
-        <div>
+        <div class="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
-            name=""
             id="search-term"
             placeholder="search any word....."
-            class="outline-none p-3 border rounded-lg w-[500px] shadow-xl leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
+            class="outline-none p-3 border rounded-lg w-full sm:w-80 md:w-[500px] shadow-xl leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500"
           />
           <button
             id="btn"
@@ -79,17 +110,16 @@
       </section>
     </main>
 
-    <footer class="absolute inset-x-0 botom-0">
-      <div class="p-4 text-center mt-4">
+    <footer class="w-full bg-gray-100 py-4 mt-auto">
+      <div class="text-center">
         <h1>Made with ❤️ by Subham</h1>
       </div>
     </footer>
 
-    <!-- user register -->
     <!-- Registration Popup (Initially Hidden) -->
     <div
       id="popup"
-      class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden" 
+      class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden"
     >
       <div class="bg-white p-6 rounded-lg shadow-lg w-96">
         <h2 class="text-2xl font-bold mb-4">Register</h2>
@@ -141,5 +171,11 @@
     </div>
 
     <script src="script.js"></script>
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden')
+    })
+  </script>
   </body>
 </html>
